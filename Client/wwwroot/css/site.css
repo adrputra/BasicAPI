@@ -7,6 +7,8 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -60,12 +62,27 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  /*margin-bottom: 60px;*/
 }
 .footer {
-  position: absolute;
+  position: relative;
+  margin-top:100px;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 100px; /* Vertically center the text there */
+}
+
+.border-red{
+    border: 3px solid red;
+    padding: 50px;
+}
+
+.border-green{
+    border: 2px solid green;
+    padding: 10px;
+}
+
+.border-blue {
+    background-color:cadetblue;
 }
