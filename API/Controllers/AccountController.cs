@@ -55,6 +55,8 @@ namespace API.Controllers
         [HttpPost("login")]
         public ActionResult Login(LoginVM loginVM)
         {
+            //var login = _accountRepository.Login(loginVM);
+            //return Ok(login);
             try
             {
                 var login = _accountRepository.Login(loginVM);
@@ -86,16 +88,18 @@ namespace API.Controllers
             {
                 return StatusCode(500, new { status = HttpStatusCode.InternalServerError, message = ex.Message });
             }
+            //return Ok(_accountRepository.GetMaster(NIK));
         }
 
         [Authorize(Roles = "Director,Manager")]
         [HttpGet("master")]
         public ActionResult GetMaster()
         {
+            //return Ok(_accountRepository.GetMaster());
             try
             {
                 var master = _accountRepository.GetMaster();
-                if(master == null)
+                if (master == null)
                 {
                     return StatusCode(400, new { status = HttpStatusCode.BadRequest, result = master, message = "No Data Found" });
                 }

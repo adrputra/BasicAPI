@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_AdminLayout";
+}
+
+<body>
+    <table class="table table-hover mt-5 table-test">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="table table-hover mt-5 table-pokemon">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody id="dataPokemon">
+        </tbody>
+    </table>
+
+    <!-- Large modal -->
+    <div id="pokemonModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content container">
+                <h1 class="text-center headline mt-4">
+                </h1>
+                <div class="row">
+                    <div class="col">
+                        <img src="" class="rounded float-left pic" width="300" height="300" alt="...">
+                    </div>
+                    <div class="col">
+                        <div class="row mt-2">
+                            <p class="h4">Types</p>
+                        </div>
+                        <div class="row types">
+                        </div>
+                        <div class="row mt-2">
+                            <p class="h4">Ability</p>
+                        </div>
+                        <div class="row ability">
+                        </div>
+                        <div class="row mt-2">
+                            <p class="h4">Height</p>
+                        </div>
+                        <div class="row">
+                            <p class="h5 height"></p>
+                        </div>
+                        <div class="row">
+                            <p class="h4">Weight</p>
+                        </div>
+                        <div class="row">
+                            <p class="h5 weight"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 ml-4 mr-5">
+                        <div class="row">
+                            <p class="h3">Location Encounter</p>
+                            <div class="row overflow-auto mt-2" style="max-height:200px;">
+                                <ul class="list-group list-group-flush location">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <p class="h3">Stats</p>
+                        </div>
+                        <div class="progress mb-2">
+                            <div class="progress-bar progress-bar-striped bg-success active hp" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Health Point : </div>
+                        </div>
+                        <div class="progress mb-2">
+                            <div class="progress-bar progress-bar-striped bg-danger active attack" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Health Point : </div>
+                        </div>
+                        <div class="progress mb-2">
+                            <div class="progress-bar progress-bar-striped bg-warning active defense" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress mb-2">
+                            <div class="progress-bar progress-bar-striped bg-danger active special-attack" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Health Point : </div>
+                        </div>
+                        <div class="progress mb-2">
+                            <div class="progress-bar progress-bar-striped bg-warning active special-defense" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress mb-2">
+                            <div class="progress-bar progress-bar-striped bg-info active speed" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
