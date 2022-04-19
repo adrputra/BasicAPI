@@ -78,11 +78,12 @@
                         <div class="col-md-4 mb-3">
                             <i class="fa fa-key" aria-hidden="true"></i>
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password" required>
-                            <span class="input-group-text">
-                            <i class="far fa-eye" id="togglePassword" 
-                           style="cursor: pointer"></i>
-                           </span>
+                            <div class="input-group p-0 m-0" id="hide-password">
+                                <input type="password" class="form-control inline" id="password" placeholder="Password" required>
+                                <span class="input-group-text">
+                                    <i class="far fa-eye-slash" id="togglePassword"style="cursor: pointer"></i>
+                               </span>
+                            </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <i class="fa fa-book" aria-hidden="true"></i>
@@ -171,12 +172,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <i class="fa fa-key" aria-hidden="true"></i>
-                            <label for="password">Password</label>
-                            <input type="text" class="form-control" id="passwordU" placeholder="Password" required>
-                        </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-5 mb-3">
                             <i class="fa fa-book" aria-hidden="true"></i>
                             <label for="degree">Degree</label>
                             <select class="form-control" id="degreeU">
@@ -186,12 +182,12 @@
                                 <option value="Professor">Professor</option>
                             </select>
                         </div>
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-3 mb-3">
                             <i class="fa fa-line-chart" aria-hidden="true"></i>
                             <label for="gpa">GPA</label>
                             <input type="text" class="form-control" id="gpaU" placeholder="GPA" required>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-4 mb-3">
                             <i class="fa fa-university" aria-hidden="true"></i>
                             <label for="university">University</label>
                             <select class="form-control" id="universityU">

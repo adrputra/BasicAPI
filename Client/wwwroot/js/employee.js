@@ -47,11 +47,7 @@ function MasterData() {
             "orderMulti": false,
             "ajax": {
                 "url": "getmaster/",
-                //"url": "https://localhost:44340/api/account/master/",
                 "type": "GET",
-                //"headers": {
-                //    "Authorization": "Bearer " + token
-                //},
                 "datatype": "json",
                 "dataSrc": "result"
             },
@@ -165,14 +161,14 @@ function DatePicker() {
 
 function University() {
     $.ajax({
-        url: "https://localhost:44340/api/university",
+        url: "../university/getall",
         success: function (result) {
             var data = "";
             $.each(result, function (key, val) {
                 data += `<option value="${val.id}">${val.name}</option>`
             })
             $('#university').html(data);
-            $('.update-modal #university').html(data);
+            $('#universityU').html(data);
         }
     });
 }
@@ -186,7 +182,7 @@ function Register() {
     input.Phone = $("#phone").val();
     input.BirthDate = $("#date").val();
     input.Salary = $("#salary").val();
-    input.Email = $("#email").val();
+    input.Email = $("#email").val().toLowerCase();
     input.Gender = parseInt($("input[name='gender']:checked").val());
     input.Password = $("#password").val();
     input.Degree = $("#degree").val();
@@ -220,12 +216,12 @@ function Delete(nik, educationId) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url: `employee/Delete/${nik}`,
+                url: `../employee/Delete/${nik}`,
                 success: function (result) {
                     console.log(`Success data ${nik} deleted.`)
                     $.ajax({
                         type: "DELETE",
-                        url: `education/Delete/${educationId}`,
+                        url: `../education/Delete/${educationId}`,
                         success: function (result) {
                             console.log(`Success education ${educationId} deleted.`)
                         },
@@ -294,7 +290,7 @@ function Update(nik, educationId) {
     updateEMP.Phone = $("#phoneU").val();
     updateEMP.BirthDate = $("#dateU").val();
     updateEMP.Salary = $("#salaryU").val();
-    updateEMP.Email = $("#emailU").val();
+    updateEMP.Email = $("#emailU").val().toLowerCase();
     updateEMP.Gender = parseInt($("input[name='genderU']:checked").val());
     //updatePass.Password = $(".update-modal #password").val();
     updateEdu.Id = educationId;
@@ -314,12 +310,6 @@ function Update(nik, educationId) {
     $.ajax({
         type: "PUT",
         url: `../employee/updateNIK/`,
-        //headers: {
-        //    Accept: 'application/json',
-        //    'Content-Type': 'application/json',
-        //},
-        //dataType: 'json',
-        //data: JSON.stringify(updateEMP),
         data: updateEMP,
         success: function (msg) {
             console.log("Success Update Employee", JSON.stringify(updateEMP))
@@ -358,7 +348,7 @@ Chart()
 function Chart() {
     $.ajax({
         type: "GET",
-        url: `https://localhost:44340/api/university`,
+        url: `../university/getall`,
         success: function (result) {
             let univ = {}
             $.each(result, function (key, val) {
@@ -494,3 +484,18 @@ function Chart() {
         }
     })
 }
+
+$(document).ready(function () {
+    $("#hide-password span").on('click', function (event) {
+        event.preventDefault();
+        if ($('#hide-password input').attr("type") == "text") {
+            $('#hide-password input').attr('type', 'password');
+            $('#hide-password i').addClass("fa-eye-slash");
+            $('#hide-password i').removeClass("fa-eye");
+        } else if ($('#hide-password input').attr("type") == "password") {
+            $('#hide-password input').attr('type', 'text');
+            $('#hide-password i').removeClass("fa-eye-slash");
+            $('#hide-password i').addClass("fa-eye");
+        }
+    });
+});

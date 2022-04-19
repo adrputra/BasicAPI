@@ -224,20 +224,19 @@ function PokemonData(url) {
     });
 }
 
-$(document).ready(function () {
-    $('.table-pokemon').DataTable({
-        search: {
-            return: true
-        }
-    });
-});
+//$(document).ready(function () {
+//    $('.table-pokemon').DataTable({
+//        search: {
+//            return: true
+//        }
+//    });
+//});
 
 $(document).ready(function () {
     $('.table-test').DataTable({
         "filter": true,
         "orderMulti": false,
         "ajax": {
-            //"url": "https://swapi.dev/api/people/",
             "url": "https://pokeapi.co/api/v2/pokemon?limit=1126&offset=0",
             "datatype": "json",
             "dataSrc": "results"

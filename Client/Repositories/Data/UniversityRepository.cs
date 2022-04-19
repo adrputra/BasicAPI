@@ -28,12 +28,5 @@ namespace Client.Repositories.Data
             //    BaseAddress = new Uri(address.link)
             //};
         }
-
-        public HttpStatusCode UpdateEducation(University university, string id)
-        {
-            StringContent content = new StringContent(JsonConvert.SerializeObject(university), Encoding.UTF8, "application/json");
-            var result = httpClient.PutAsync(request, content).Result;
-            return result.StatusCode;
-        }
     }
 }
